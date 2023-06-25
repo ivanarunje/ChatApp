@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ loginInfo }) {
+  const availableRooms = [
+    "DataGeeks",
+    "WebDevs",
+    "BackendHeroes",
+    "MobileAppDev",
+    "UX/UI",
+  ];
+  const navigate = useNavigate();
+
   const [username, setUsername] = useState("");
   const [room, setRoom] = useState("");
   const [error, setError] = useState({});
-  const navigate = useNavigate();
 
   // Form submit function
   const submitFormHandler = (e) => {
@@ -16,18 +24,18 @@ function Login() {
     const errorMsg = validateData();
     console.log("msgErrors: ", errorMsg.username);
     console.log("msgErrors: ", errorMsg.room);
-    console.log("msgErrors: ", errorMsg.length);
 
     if (!errorMsg.username && !errorMsg.room) {
-      // go to chatRoom component
-      console.log("msgErrors: OK ");
-      navigate("/chatRoom");
+      // go to chatRoom
+      console.log("msgErrors: PARAMETRI SU OK! ");
+      loginInfo = { username, room };
+      navigate("/chatRoom", { state: { loginInfo: { username, room } } });
       // reset values
       setUsername("");
       setRoom("");
       setError({});
     } else {
-      console.log("msgErrors: NIJE OK ");
+      console.log("msgErrors: PARAMETRI NISU OK! ");
       setError(errorMsg);
     }
   };
@@ -49,8 +57,7 @@ function Login() {
   };
 
   return (
-    /* Form with a username input field, room selection dropdown, and a login button.
-     *** TODO: style*/
+    /*** TODO: style*/
     <div>
       <h2>Login</h2>
       <form onSubmit={submitFormHandler}>
@@ -72,11 +79,11 @@ function Login() {
             onChange={(e) => setRoom(e.target.value)}
           >
             <option value="">Select a room to join</option>
-            <option value="DataGeeks">DataGeeks</option>
-            <option value="WebDev">WebDev</option>
-            <option value="BackendHeroes">BackendHeroes</option>
-            <option value="MobileAppDev">MobileAppDev</option>
-            <option value="UX/UI">UX/UI</option>
+            {availableRooms.map((room) => (
+              <option key={room} value={room}>
+                {room}
+              </option>
+            ))}
           </select>
         </div>
         {error.username ? <p className="error">{error.username}</p> : null}

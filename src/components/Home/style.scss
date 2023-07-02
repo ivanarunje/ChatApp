@@ -1,0 +1,56 @@
+@import "../../sass/main.scss";
+
+.container {
+  font-family: $font-family;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.heading {
+  margin: 0;
+  line-height: 2.5;
+}
+
+.button-container {
+  margin-left: auto;
+}
+
+.room-list-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.room-list {
+  list-style: none;
+  padding: 0;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.item {
+  margin-right: 30px;
+  font-size: 18px;
+  color: $list-items;
+  font-weight: bold;
+  position: relative;
+}
+
+.item::before {
+  content: "~";
+  position: absolute;
+  left: -20px;
+  color: $list-type;
+}
+
+.welcome-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: $text;
+}

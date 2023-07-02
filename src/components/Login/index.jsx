@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./style.scss";
 
-function Login({ loginInfo }) {
+function Login() {
   const availableRooms = [
     "DataGeeks",
     "WebDevs",
@@ -28,7 +29,6 @@ function Login({ loginInfo }) {
     if (!errorMsg.username && !errorMsg.room) {
       // go to chatRoom
       console.log("msgErrors: PARAMETRI SU OK! ");
-      loginInfo = { username, room };
       navigate("/chatRoom", { state: { loginInfo: { username, room } } });
       // reset values
       setUsername("");
@@ -57,12 +57,10 @@ function Login({ loginInfo }) {
   };
 
   return (
-    /*** TODO: style*/
-    <div>
-      <h2>Login</h2>
+    <div className="login-container">
+      <h2 className="heading">Login</h2>
       <form onSubmit={submitFormHandler}>
         <div>
-          <label>Username:</label>
           <input
             type="text"
             id="username"
@@ -72,7 +70,6 @@ function Login({ loginInfo }) {
           />
         </div>
         <div>
-          <label>Chat Room:</label>
           <select
             id="room"
             value={room}
@@ -86,9 +83,13 @@ function Login({ loginInfo }) {
             ))}
           </select>
         </div>
-        {error.username ? <p className="error">{error.username}</p> : null}
-        {error.room ? <p className="error">{error.room}</p> : null}
-        <button type="submit">Login</button>
+        {error.username ? (
+          <p className="login-error">{error.username}</p>
+        ) : null}
+        {error.room ? <p className="login-error ">{error.room}</p> : null}
+        <button className="btn" type="submit">
+          Login
+        </button>
       </form>
     </div>
   );

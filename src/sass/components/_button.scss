@@ -1,0 +1,14 @@
+.btn {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: $btn_bg;
+  color: $text;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background-color: $btn_bg_hover;
+}

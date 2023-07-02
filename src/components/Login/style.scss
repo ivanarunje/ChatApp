@@ -1,0 +1,33 @@
+@import "../../sass/main.scss";
+
+.login-container {
+  width: 500px;
+  margin: auto;
+  padding: 40px 50px;
+  background-color: $container_bg;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container input,
+select {
+  width: 400px;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 20px;
+  background-color: $input_bg;
+  font-size: 16px;
+  outline: none;
+  color: $input_text;
+}
+
+.login-error {
+  color: $error-text;
+  font-size: 14px;
+  margin-top: 5px;
+}

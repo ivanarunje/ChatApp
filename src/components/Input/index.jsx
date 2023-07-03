@@ -8,7 +8,7 @@ function Input({ getInput }) {
   };
 
   const InputHandler = (event) => {
-    /* TODO: Check for empty value, add some style to form fields*/
+    /* TODO: add some style to form fields*/
     event.preventDefault();
     setInput(input);
     getInput(input);
@@ -18,8 +18,10 @@ function Input({ getInput }) {
   return (
     <div className="input-container">
       <form onSubmit={InputHandler}>
-        <input type="text" value={input} onChange={changeHandler} />
-        <button type="submit">Send</button>
+        <input type="text" value={input.trim()} onChange={changeHandler} />
+        <button type="submit" disabled={input.trim() === ""}>
+          Send
+        </button>
       </form>
     </div>
   );

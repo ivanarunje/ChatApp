@@ -6,10 +6,12 @@ import "./style.scss";
 function ChatRoom() {
   const location = useLocation();
   const { loginInfo } = location.state;
-  const [msg, setMsg] = useState("");
+  const [msg, setMsg] = useState([]);
 
-  const getInput = (inputMsg) => {
-    setMsg(inputMsg);
+  const getInput = (newMsg) => {
+    const receivedMsg = [...msg];
+    receivedMsg.push(newMsg);
+    setMsg(receivedMsg);
   };
 
   return (
@@ -28,7 +30,13 @@ function ChatRoom() {
         </p>
         <div className="chat">
           <Input getInput={getInput} />
-          Ovo je poruka: {msg}
+          <div>
+            <ul>
+              {msg.map((message, index) => (
+                <li key={index}>{message}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </div>

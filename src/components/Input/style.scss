@@ -1,0 +1,20 @@
+@import "../../sass/main.scss";
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+button {
+  padding: 10px 20px;
+  color: $text;
+  background-color: rgb(7, 129, 135);
+  border: none;
+  outline: none;
+}
+
+button:disabled {
+  background-color: rgb(124, 188, 190);
+}

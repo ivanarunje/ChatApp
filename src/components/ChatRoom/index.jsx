@@ -29,13 +29,15 @@ function ChatRoom() {
           quia neque inventore expedita pariatur sed voluptatem in nostrum!
         </p>
         <div className="chat">
-          <Input getInput={getInput} />
-          <div>
+          <div className="messages">
             <ul>
               {msg.map((message, index) => (
                 <li key={index}>{message}</li>
               ))}
             </ul>
+          </div>
+          <div className="input">
+            <Input getInput={getInput} />
           </div>
         </div>
       </div>

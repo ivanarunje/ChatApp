@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./style.scss";
 
 function Input({ getInput }) {
   const [input, setInput] = useState("");
@@ -16,14 +17,15 @@ function Input({ getInput }) {
   };
 
   return (
-    <div className="input-container">
-      <form onSubmit={InputHandler}>
-        <input type="text" value={input.trim()} onChange={changeHandler} />
-        <button type="submit" disabled={input.trim() === ""}>
-          Send
-        </button>
-      </form>
-    </div>
+    <form onSubmit={InputHandler}>
+      <input
+        type="text"
+        placeholder="Enter your message"
+        value={input}
+        onChange={changeHandler}
+      />
+      <button disabled={input.trim() === ""}>Send</button>
+    </form>
   );
 }
 

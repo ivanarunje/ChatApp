@@ -1,3 +1,21 @@
 @import "../../sass/main.scss";
 
-//imported container
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  background-color: $chat-bg;
+  border: 1px solid white;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.input form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}

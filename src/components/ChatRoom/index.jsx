@@ -30,11 +30,12 @@ function ChatRoom() {
         </p>
         <div className="chat">
           <div className="messages">
-            <ul>
-              {msg.map((message, index) => (
-                <li key={index}>{message}</li>
-              ))}
-            </ul>
+            {msg.map((message, index) => (
+              <div className="message-row" key={index}>
+                <div className="username">{loginInfo.username}:</div>
+                <div className="message-text">{message}</div>
+              </div>
+            ))}
           </div>
           <div className="input">
             <Input getInput={getInput} />

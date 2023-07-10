@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.scss";
 
+function getRandomColor() {
+  return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
+}
+
 function Login() {
   const availableRooms = [
     "DataGeeks",
@@ -29,7 +33,9 @@ function Login() {
     if (!errorMsg.username && !errorMsg.room) {
       // go to chatRoom
       console.log("msgErrors: PARAMETRI SU OK! ");
-      navigate("/chatRoom", { state: { loginInfo: { username, room } } });
+      navigate("/chatRoom", {
+        state: { name: username, roomName: room, color: getRandomColor() },
+      });
       // reset values
       setUsername("");
       setRoom("");

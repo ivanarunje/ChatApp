@@ -5,6 +5,8 @@ input {
   padding: 10px;
   border: none;
   outline: none;
+  border-radius: 5px;
+  margin-right: 5px;
 }
 
 button {
@@ -13,6 +15,7 @@ button {
   background-color: rgb(7, 129, 135);
   border: none;
   outline: none;
+  border-radius: 5px;
 }
 
 button:disabled {

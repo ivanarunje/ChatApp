@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.scss";
+import { availableRooms, getRandomColor } from "../../utils";
 
 function Login() {
-  const availableRooms = [
-    "DataGeeks",
-    "WebDevs",
-    "BackendHeroes",
-    "MobileAppDev",
-    "UX/UI",
-  ];
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
@@ -29,7 +23,9 @@ function Login() {
     if (!errorMsg.username && !errorMsg.room) {
       // go to chatRoom
       console.log("msgErrors: PARAMETRI SU OK! ");
-      navigate("/chatRoom", { state: { loginInfo: { username, room } } });
+      navigate("/chatRoom", {
+        state: { name: username, roomName: room, color: getRandomColor() },
+      });
       // reset values
       setUsername("");
       setRoom("");

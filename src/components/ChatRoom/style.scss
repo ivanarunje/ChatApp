@@ -6,6 +6,7 @@
   height: 50vh;
   background-color: $chat-bg;
   border: 1px solid white;
+  border-radius: 5px;
 }
 
 .messages {
@@ -17,15 +18,25 @@
 .message-row {
   display: flex;
   align-items: center;
+  margin-bottom: 5px;
 }
 
 .username {
   margin-right: 10px;
   font-weight: bold;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  border: 2px solid;
 }
 
 .message-text {
   flex: 1;
+}
+
+.message-time {
+  font-size: 12px;
+  color: #888;
 }
 
 .input form {

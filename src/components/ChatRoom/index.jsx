@@ -40,8 +40,21 @@ function ChatRoom() {
     });
 
     room.on("data", (data, member) => {
-      setMsg((msg) => [...msg, { member, text: data }]);
+      setMsg((msg) => [
+        ...msg,
+        {
+          member,
+          text: data,
+          time: new Date().toLocaleTimeString([], { hour12: false }),
+        },
+      ]);
     });
+
+    return () => {
+      if (drone) {
+        drone.close();
+      }
+    };
   }, []);
 
   const getInput = (newMsg) => {
@@ -53,29 +66,38 @@ function ChatRoom() {
     console.log(member);
   };
 
+  const logoutHandler = () => {
+    if (drone) {
+      drone.close();
+    }
+  };
+
   return (
     <div className="container">
       <div className="chat-box">
         <div className="row">
           <h1>Welcome to #{roomName}!</h1>
           <Link to="/">
-            <button className="btn">Logout</button>
+            <button className="btn" onClick={logoutHandler}>
+              Logout
+            </button>
           </Link>
         </div>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam
-          quis eos impedit, nam, earum iste praesentium fugit qui modi quasi sit
-          quia neque inventore expedita pariatur sed voluptatem in nostrum!
-        </p>
 
         <div className="chat">
           <div className="messages">
             {msg.map((message, index) => (
               <div className="message-row" key={index}>
-                <div className="username" style={{color: message.member.clientData.color}}>
+                <div
+                  className="username"
+                  style={{ borderColor: message.member.clientData.color }}
+                >
                   {message.member.clientData.username}
                 </div>
-                <div className="message-text">{message.text}</div>
+                <div className="message-text">
+                  <div className="message-time">{message.time}</div>
+                  <div>{message.text}</div>
+                </div>
               </div>
             ))}
           </div>

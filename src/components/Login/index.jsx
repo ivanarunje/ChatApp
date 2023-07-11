@@ -1,19 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.scss";
-
-function getRandomColor() {
-  return "#" + Math.floor(Math.random() * 0xffffff).toString(16);
-}
+import { availableRooms, getRandomColor } from "../../utils";
 
 function Login() {
-  const availableRooms = [
-    "DataGeeks",
-    "WebDevs",
-    "BackendHeroes",
-    "MobileAppDev",
-    "UX/UI",
-  ];
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");

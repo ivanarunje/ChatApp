@@ -13,6 +13,7 @@ function ChatRoom() {
     color: color,
   });
   const [drone, setDrone] = useState();
+  const [activeMembers, setActiveMembers] = useState([]);
 
   useEffect(() => {
     const drone = new window.Scaledrone(process.env.REACT_APP_CHANNEL_ID, {
@@ -40,6 +41,21 @@ function ChatRoom() {
       console.log("Successfully joined room: " + roomName);
     });
 
+    room.on("members", function (data) {
+      const members = Object.values(data);
+      setActiveMembers(members);
+    });
+
+    room.on("member_join", function (member) {
+      setActiveMembers((prevMembers) => [...prevMembers, member]);
+    });
+
+    room.on("member_leave", ({ id }) => {
+      setActiveMembers((prevMembers) =>
+        prevMembers.filter((member) => member.id !== id)
+      );
+    });
+
     room.on("data", (data, member) => {
       setMsg((msg) => [
         ...msg,
@@ -63,8 +79,6 @@ function ChatRoom() {
       room: "observable-" + roomName,
       message: newMsg,
     });
-    console.log(msg);
-    console.log(member);
   };
 
   const logoutHandler = () => {
@@ -77,13 +91,21 @@ function ChatRoom() {
     <div className="container">
       <div className="chat-box">
         <div className="row">
-          <h1>Welcome to #{roomName}!</h1>
+          <h1>
+            Welcome to #{roomName}! ({activeMembers.length})
+          </h1>
           <Link to="/">
             <button className="btn" onClick={logoutHandler}>
               Logout
             </button>
           </Link>
         </div>
+        <p>
+          Active members:{" "}
+          {activeMembers.map((m) => (
+            <span key={m.id}> #{m.clientData.username}</span>
+          ))}
+        </p>
 
         <div className="chat">
           <div className="messages">

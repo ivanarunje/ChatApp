@@ -15,14 +15,27 @@
   padding: 10px;
 }
 
-.message-row {
+.message-me {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
 }
+.message-other {
+  display: flex;
+  flex-direction: row-reverse;
+  text-align: right;
+  margin-bottom: 5px;
+}
 
-.username {
+.message-me .message-username {
   margin-right: 10px;
+}
+
+.message-other .message-username {
+  margin-left: 10px;
+}
+
+.message-username {
   font-weight: bold;
   padding: 5px;
   color: white;
@@ -30,11 +43,7 @@
   border: 2px solid;
 }
 
-.message-text {
-  flex: 1;
-}
-
-.message-time {
+.time {
   font-size: 12px;
   color: #888;
 }

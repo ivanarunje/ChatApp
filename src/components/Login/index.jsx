@@ -13,16 +13,10 @@ function Login() {
   // Form submit function
   const submitFormHandler = (e) => {
     e.preventDefault();
-    console.log("Username: ", username);
-    console.log("Room: ", room);
-
     const errorMsg = validateData();
-    console.log("msgErrors: ", errorMsg.username);
-    console.log("msgErrors: ", errorMsg.room);
 
     if (!errorMsg.username && !errorMsg.room) {
       // go to chatRoom
-      console.log("msgErrors: PARAMETRI SU OK! ");
       navigate("/chatRoom", {
         state: { name: username, roomName: room, color: getRandomColor() },
       });
@@ -31,7 +25,6 @@ function Login() {
       setRoom("");
       setError({});
     } else {
-      console.log("msgErrors: PARAMETRI NISU OK! ");
       setError(errorMsg);
     }
   };
@@ -82,7 +75,7 @@ function Login() {
         {error.username ? (
           <p className="login-error">{error.username}</p>
         ) : null}
-        {error.room ? <p className="login-error ">{error.room}</p> : null}
+        {error.room ? <p className="login-error">{error.room}</p> : null}
         <button className="btn" type="submit">
           Login
         </button>

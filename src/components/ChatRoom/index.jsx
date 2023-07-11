@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 import Input from "../Input";
+import Message from "../Message";
 import "./style.scss";
 
 function ChatRoom() {
@@ -87,18 +88,7 @@ function ChatRoom() {
         <div className="chat">
           <div className="messages">
             {msg.map((message, index) => (
-              <div className="message-row" key={index}>
-                <div
-                  className="username"
-                  style={{ borderColor: message.member.clientData.color }}
-                >
-                  {message.member.clientData.username}
-                </div>
-                <div className="message-text">
-                  <div className="message-time">{message.time}</div>
-                  <div>{message.text}</div>
-                </div>
-              </div>
+              <Message message={message} id={index} currentUser={member} />
             ))}
           </div>
           <div className="input">

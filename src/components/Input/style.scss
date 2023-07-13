@@ -12,12 +12,12 @@ input {
 button {
   padding: 10px 20px;
   color: $text;
-  background-color: rgb(7, 129, 135);
+  background-color: $btn_primary;
   border: none;
   outline: none;
   border-radius: 5px;
 }
 
 button:disabled {
-  background-color: rgb(124, 188, 190);
+  background-color: rgb(105, 151, 155);
 }

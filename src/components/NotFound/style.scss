@@ -1,11 +1,15 @@
 @import "../../sass/main.scss";
 
+.notFound-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
 .image-container {
   text-align: center;
   width: 100%;
   height: 70%;
 }
-
 .image-container img {
   width: auto;
   height: auto;
@@ -13,7 +17,12 @@
   max-height: 500px;
   object-fit: contain;
 }
-
-.btn {
+.link_notFound {
+  color: $text;
   text-decoration: none;
+  font-weight: bold;
+}
+
+.link_notFound:hover {
+  color: $btn_secondary_hover;
 }

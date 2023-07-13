@@ -113,7 +113,7 @@ function ChatRoom() {
               </ol>
             </div>
             <Link to="/">
-              <button className="btn" onClick={logoutHandler}>
+              <button className="btn_secondary" onClick={logoutHandler}>
                 Logout
               </button>
             </Link>

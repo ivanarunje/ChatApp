@@ -33,7 +33,7 @@ function Home() {
           <li className="room">UX/UI</li>
           <li className="room">Mobile development</li>
           <Link to="/login">
-            <button className="btn"> JOIN </button>
+            <button className="btn_secondary"> JOIN </button>
           </Link>
         </ul>
       </div>

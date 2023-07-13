@@ -76,7 +76,7 @@ function Login() {
           <p className="login-error">{error.username}</p>
         ) : null}
         {error.room ? <p className="login-error">{error.room}</p> : null}
-        <button className="btn" type="submit">
+        <button className="btn_primary" type="submit">
           Login
         </button>
       </form>

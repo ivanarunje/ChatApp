@@ -5,20 +5,15 @@ import "./style.scss";
 function Home() {
   return (
     <div className="container">
-      <div className="row">
-        <h2 className="heading">Welcome to the Chat Application!</h2>
-        <div className="button-container">
-          <Link to="/login">
-            <button className="btn">Join room</button>
-          </Link>
-        </div>
-      </div>
-      <p className="welcome-text">
-        Connect with like-minded individuals and enhance your IT skills through
-        collaborative discussions and knowledge sharing. Join various
-        specialized rooms tailored to different IT domains and expand your
-        expertise. Engage in conversations about frontend development, backend
-        development, UX/UI, databases, and more.{" "}
+      <h1>Welcome to the Chat Application!</h1>
+      <div className="description">
+        <p>
+          Connect with like-minded individuals and enhance your IT skills
+          through collaborative discussions and knowledge sharing. Join various
+          specialized rooms tailored to different IT domains and expand your
+          expertise. Engage in conversations about frontend development, backend
+          development, UX/UI, databases, and more.
+        </p>
         <p>
           The application allows you to communicate in real-time with fellow IT
           enthusiasts. Stay updated with the latest trends, exchange ideas, seek
@@ -26,14 +21,22 @@ function Home() {
           get started, simply choose a room that aligns with your interests and
           dive into engaging discussions.
         </p>
-      </p>
-      <ul className="room-list">
-        <li className="item">Databases</li>
-        <li className="item">Backend Development</li>
-        <li className="item">Frontend Development</li>
-        <li className="item">UX/UI</li>
-        <li className="item">Mobile development</li>
-      </ul>
+      </div>
+      <div className="room-heading">
+        <h3>List of available rooms</h3>
+      </div>
+      <div className="room-list">
+        <ul>
+          <li className="room">Databases</li>
+          <li className="room">Backend Development</li>
+          <li className="room">Frontend Development</li>
+          <li className="room">UX/UI</li>
+          <li className="room">Mobile development</li>
+          <Link to="/login">
+            <button className="btn"> JOIN </button>
+          </Link>
+        </ul>
+      </div>
     </div>
   );
 }

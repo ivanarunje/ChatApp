@@ -1,56 +1,53 @@
 @import "../../sass/main.scss";
 
-.container {
-  font-family: $font-family;
+h1 {
+  margin-bottom: 60px;
 }
-
-.row {
+.home-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  flex-direction: row;
+  font-family: $ff-other;
 }
 
-.heading {
-  margin: 0;
-  line-height: 2.5;
+.description {
+  font-size: 20px;
+  width: 70%;
+  line-height: 1.5;
 }
 
-.button-container {
-  margin-left: auto;
+.description p {
+  margin-top: 0;
 }
 
-.room-list-container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.room-list {
+.room-list ul {
   list-style: none;
   padding: 0;
   margin-left: 20px;
+  margin-top: 0;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
 }
 
-.item {
-  margin-right: 30px;
+.room {
   font-size: 18px;
   color: $list-items;
-  font-weight: bold;
   position: relative;
 }
 
-.item::before {
+.room::before {
   content: "~";
   position: absolute;
   left: -20px;
   color: $list-type;
 }
 
-.welcome-text {
-  font-size: 16px;
-  line-height: 1.5;
-  color: $text;
+.room-heading {
+  margin-top: 60px;
+  display: flex;
+}
+
+.room-list .btn {
+  background-color: #d19c31 !important;
 }

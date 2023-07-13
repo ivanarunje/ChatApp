@@ -8,8 +8,12 @@
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+}
+
+.heading {
+  margin: 0;
 }
 
 .login-container input,
@@ -19,7 +23,7 @@ select {
   margin-bottom: 15px;
   box-sizing: border-box;
   border: none;
-  border-radius: 20px;
+  border-radius: 5px;
   background-color: $input_bg;
   font-size: 16px;
   outline: none;

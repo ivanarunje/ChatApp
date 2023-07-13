@@ -90,31 +90,33 @@ function ChatRoom() {
   return (
     <div className="container">
       <div className="chat-box">
-        <div className="row">
-          <h1>
-            Welcome to #{roomName}! ({activeMembers.length})
-          </h1>
-          <Link to="/">
-            <button className="btn" onClick={logoutHandler}>
-              Logout
-            </button>
-          </Link>
-        </div>
-        <p>
-          Active members:{" "}
-          {activeMembers.map((m) => (
-            <span key={m.id}> #{m.clientData.username}</span>
-          ))}
-        </p>
+        <h1>Welcome to #{roomName}!</h1>
 
-        <div className="chat">
-          <div className="messages">
-            {msg.map((message, index) => (
-              <Message message={message} id={index} currentUser={member} />
-            ))}
+        <div className="box1">
+          <div className="chat">
+            <div className="messages">
+              {msg.map((message, index) => (
+                <Message message={message} id={index} currentUser={member} />
+              ))}
+            </div>
+            <div className="input">
+              <Input getInput={getInput} />
+            </div>
           </div>
-          <div className="input">
-            <Input getInput={getInput} />
+          <div className="members">
+            <div className="members-list">
+              <h3>Active members ({activeMembers.length}) </h3>
+              <ol>
+                {activeMembers.map((m) => (
+                  <li key={m.id}>{m.clientData.username}</li>
+                ))}
+              </ol>
+            </div>
+            <Link to="/">
+              <button className="btn" onClick={logoutHandler}>
+                Logout
+              </button>
+            </Link>
           </div>
         </div>
       </div>

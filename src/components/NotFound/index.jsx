@@ -12,7 +12,7 @@ export default function NotFound() {
           We are sorry but the page you are looking for does not exist. Please
           return to{" "}
           <Link className="link_notFound" to="/">
-            HOMEPAGE
+            homepage
           </Link>
           !
         </p>

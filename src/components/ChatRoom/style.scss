@@ -11,7 +11,7 @@
   width: 80%;
 }
 
-.box1 {
+.chat-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -29,6 +29,7 @@
   padding: 10px;
 }
 .members-list h3 {
+  text-align: center;
   margin: 0;
   padding: 0;
 }
@@ -36,9 +37,22 @@
   padding: 10px !important;
 }
 
+.list {
+  padding: 0;
+}
+
+.list-member {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: $list-type;
+  list-style: none;
+}
+
 .members button {
   margin-bottom: 0 !important;
-  background-color: $list-type;
+  padding: 9px 20px !important;
+  font-size: 14px;
 }
 
 .messages {
@@ -70,14 +84,14 @@
 .message-username {
   font-weight: bold;
   padding: 5px;
-  color: white;
+  color: $text;
   border-radius: 5px;
   border: 2px solid;
 }
 
 .time {
   font-size: 12px;
-  color: #888;
+  color: $time;
 }
 
 .input form {

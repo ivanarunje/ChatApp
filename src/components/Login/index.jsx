@@ -47,7 +47,7 @@ function Login() {
 
   return (
     <div className="login-container">
-      <h2 className="heading">Login</h2>
+      <h2>Login</h2>
       <form onSubmit={submitFormHandler}>
         <div>
           <input

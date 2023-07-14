@@ -1,13 +1,8 @@
 @import "../../sass/main.scss";
 
-h1 {
-  margin-bottom: 60px;
-}
-
 .home-container {
   display: flex;
   flex-direction: row;
-  font-family: $ff-other;
 }
 
 .description {
@@ -47,8 +42,4 @@ h1 {
 .room-heading {
   margin-top: 60px;
   display: flex;
-}
-
-.room-list .btn {
-  background-color: $list-type;
 }

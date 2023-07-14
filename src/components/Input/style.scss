@@ -9,15 +9,15 @@ input {
   margin-right: 5px;
 }
 
-button {
+.send {
   padding: 10px 20px;
   color: $text;
-  background-color: $btn_primary;
+  background-color: $btn_secondary;
   border: none;
   outline: none;
   border-radius: 5px;
 }
 
-button:disabled {
-  background-color: rgb(105, 151, 155);
+.send:disabled {
+  background-color: $btn_primary;
 }

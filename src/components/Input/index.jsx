@@ -24,7 +24,9 @@ function Input({ getInput }) {
         value={input}
         onChange={changeHandler}
       />
-      <button disabled={input.trim() === ""}>Send</button>
+      <button className="send" disabled={input.trim() === ""}>
+        Send
+      </button>
     </form>
   );
 }

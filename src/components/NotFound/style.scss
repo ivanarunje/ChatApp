@@ -18,11 +18,11 @@
   object-fit: contain;
 }
 .link_notFound {
-  color: $text;
+  color: $btn_primary_hover;
   text-decoration: none;
   font-weight: bold;
 }
 
 .link_notFound:hover {
-  color: $btn_secondary_hover;
+  color: $btn_secondary;
 }

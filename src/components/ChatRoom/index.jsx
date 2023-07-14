@@ -89,35 +89,40 @@ function ChatRoom() {
 
   return (
     <div className="container">
-      <div className="chat-box">
-        <h1>Welcome to #{roomName}!</h1>
+      <h1>Welcome to #{roomName}!</h1>
 
-        <div className="box1">
-          <div className="chat">
-            <div className="messages">
-              {msg.map((message, index) => (
-                <Message message={message} id={index} currentUser={member} />
+      <div className="chat-container">
+        <div className="chat">
+          <div className="messages">
+            {msg.map((message, index) => (
+              <Message
+                key={message.id || index}
+                message={message}
+                index={index}
+                currentUser={member}
+              />
+            ))}
+          </div>
+          <div className="input">
+            <Input getInput={getInput} />
+          </div>
+        </div>
+        <div className="members">
+          <div className="members-list">
+            <h3>Active members ({activeMembers.length}) </h3>
+            <ul className="list">
+              {activeMembers.map((m) => (
+                <li className="list-member" key={m.id}>
+                  {m.clientData.username}
+                </li>
               ))}
-            </div>
-            <div className="input">
-              <Input getInput={getInput} />
-            </div>
+            </ul>
           </div>
-          <div className="members">
-            <div className="members-list">
-              <h3>Active members ({activeMembers.length}) </h3>
-              <ol>
-                {activeMembers.map((m) => (
-                  <li key={m.id}>{m.clientData.username}</li>
-                ))}
-              </ol>
-            </div>
-            <Link to="/">
-              <button className="btn_secondary" onClick={logoutHandler}>
-                Logout
-              </button>
-            </Link>
-          </div>
+          <Link to="/">
+            <button className="btn_primary" onClick={logoutHandler}>
+              Logout
+            </button>
+          </Link>
         </div>
       </div>
     </div>
